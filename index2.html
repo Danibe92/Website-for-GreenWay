@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration and Login Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            transition-duration: 0.4s;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .error {
+            color: red;
+        }
+         .button1 {
+              background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+      .button1:hover{
+        color: #4CAF50;
+      }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="button button1" onclick="toggleSection('registrationForm')">Registration Form</button>
+        <form id="registrationForm" style="display: none;" action="register.php" method="post">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password.." required>
+
+            <button type="submit">Register</button>
+            <p id="errorMessage" class="error" style="display: none;"></p>
+        </form>
+
+        <button class="butt button1" onclick="toggleSection('loginForm')">Login Form</button>
+        <form id="loginForm" style="display: none;" action="login.php" method="post">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="Your email.." required>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="Your password.." required>
+
+            <button type="submit">Login</button>
+        </form>
+        <button class="butt button1" onclick="toggleSection('azienda')">Crea Azienda</button>
+            <form id="azienda" style="display: none;" action="create_company.php" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+            
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address" required><br>
+            
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" required><br><br>
+            
+                <input type="submit" value="Create Company">
+            </form>
+
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
